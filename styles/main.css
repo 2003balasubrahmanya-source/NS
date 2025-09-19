@@ -1,0 +1,65 @@
+/*
+  File: styles/main.css
+  Purpose: Shared color palette and base styles for all pages (NS Enterprises - Career Compass)
+  Author: NS Enterprises Web Team
+  Last updated: 2025-09-19
+  Description: Ensures consistent color scheme and typography across the site.
+*/
+
+:root {
+  --primary: #3555ff;
+  --primary-dark: #1d3eff;
+  --accent: #6a5acd;
+  --background: #f0f6ff;
+  --surface: #fff;
+  --text: #1a1a1a;
+  --footer-bg: #2e3a59;
+  --footer-text: #ccc;
+  --footer-link: #aaccff;
+  --footer-link-hover: #fff;
+  --border: #ccd9ff;
+  --highlight: #f6f9ff;
+  --error: #d32f2f;
+  --success: #2e7d32;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  background: rgba(53, 85, 255, 0.1);
+  backdrop-filter: blur(8px);
+  color: var(--primary);
+}
+
+h1, h2, h3 {
+  color: var(--primary);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--primary-dark);
+}
+
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+}
+footer a {
+  color: var(--footer-link);
+}
+footer a:hover {
+  color: var(--footer-link-hover);
+}
+
+/* Utility classes */
+.bg-surface { background: var(--surface); }
+.text-accent { color: var(--accent); }
+.border { border: 1px solid var(--border); }
