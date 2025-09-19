@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | NS Enterprises - Career Compass</title>
+  <meta name="description" content="Learn more about NS Enterprises and our mission to provide high-quality printing solutions.">
+  <meta property="og:title" content="About Us | NS Enterprises">
+  <meta property="og:description" content="Discover our mission, vision, and values.">
+  <meta property="og:url" content="https://bsubba3002.github.io/career_compass/about.html">
+  <meta property="og:type" content="website">
+  <link rel="preload" as="image" href="images/logo.png">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Dedicated About Us CSS -->
+  <link rel="stylesheet" href="styles/about.css">
+  <!-- CSS moved to styles/about.css -->
+</head>
+
+<body>
+  <header id="header" style="position:fixed; top:0; width:100%; background:rgba(106,90,205,0.1); backdrop-filter:blur(10px); padding:15px 0; z-index:1000;" role="banner">
+  <style>
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-title img {
+      height: 40px;
+    }
+
+    .logo-title h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: #6a5acd;
+      transition: all 0.8s ease;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: slideInFade 0.8s ease forwards;
+    }
+
+    @keyframes slideInFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: #6a5acd;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #6a5acd;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(106, 90, 205, 0.1);
+    }
+
+    /* Mobile styles */
+    @media (max-width: 600px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        padding: 10px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+    }
+  </style>
+
+  <div class="header-container">
+    <!-- ✅ Logo + Name -->
+    <div class="logo-title">
+      <img src="images/logo.png" alt="NS Enterprises company logo" loading="eager" width="40" height="40">
+      <h1>NS ENTERPRISES</h1>
+    </div>
+
+    <!-- ✅ Menu Icon (☰) -->
+  <button class="nav-toggle" aria-label="Open navigation menu" aria-controls="mainnav" aria-expanded="false" onclick="toggleNavMenu(this)">☰</button>
+  </div>
+
+  <!-- ✅ Navigation Links -->
+
+  <nav class="nav-container" style="max-width:1200px; margin:auto; padding:0 20px;" aria-label="Main navigation">
+    <div class="nav-links" id="mainnav" tabindex="-1">
+      <button class="nav-close" aria-label="Close navigation menu" onclick="closeNavMenu()">&times;</button>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html" aria-current="page" style="font-weight:bold; background:rgba(106,90,205,0.15);">About Us</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div id="nav-overlay" onclick="closeNavMenu()" tabindex="-1" aria-hidden="true"></div>
+  </nav>
+  </header>
+
+
+  <main id="main-content" tabindex="-1">
+    <section aria-labelledby="company-overview">
+      <h2 id="company-overview">Company Overview</h2>
+      <dl>
+        <dt>Name:</dt><dd>NS ENTERPRISES</dd>
+        <dt>Founded:</dt><dd>2023</dd>
+        <dt>Location:</dt><dd>Factory No. 43, SY No. 7/2, Kachohalli Village, Bangalore – 560091</dd>
+        <dt>Industry:</dt><dd>Thermal Paper & Billing Solutions</dd>
+        <dt>Email:</dt><dd><a href="mailto:nsenterprisesnagavenihh@gmail.com">nsenterprisesnagavenihh@gmail.com</a></dd>
+        <dt>Phone:</dt><dd><a href="tel:+919880408606">+91 98804 08606</a></dd>
+      </dl>
+    </section>
+    <section aria-labelledby="vision-mission">
+      <h2 id="vision-mission">Vision & Mission</h2>
+      <h3>Vision</h3>
+      <p>To become a nationwide leader in thermal printing solutions, delivering quality and trust.</p>
+      <h3>Mission</h3>
+      <p>To consistently provide high-quality, reliable and affordable printing products across diverse sectors.</p>
+    </section>
+    <section aria-labelledby="core-values">
+      <h2 id="core-values">Core Values</h2>
+      <ul>
+        <li>Customer Satisfaction</li>
+        <li>Commitment to Quality</li>
+        <li>Transparency & Trust</li>
+        <li>Consistency in Delivery</li>
+        <li>Forward-Looking Innovation</li>
+      </ul>
+    </section>
+    <section aria-labelledby="highlights">
+      <h2 id="highlights">Highlights</h2>
+      <ul>
+        <li>Serving 6+ Indian states</li>
+        <li>Supplying to top utility and gas partners</li>
+        <li>Over 1 Million rolls delivered</li>
+        <li>Based out of Bengaluru with pan-India logistics</li>
+      </ul>
+    </section>
+
+    <!-- Dynamic Contact Form Section -->
+    <section aria-labelledby="contact-form-section">
+      <h2 id="contact-form-section">Contact Us</h2>
+      <form id="dynamic-contact-form" autocomplete="off" novalidate>
+        <div class="form-group">
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" name="name" required maxlength="50" tabindex="0" />
+        </div>
+        <div class="form-group">
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" name="email" required maxlength="80" tabindex="0" />
+          <span class="input-error" id="email-error" aria-live="polite"></span>
+        </div>
+        <div class="form-group">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="4" maxlength="250" required tabindex="0"></textarea>
+          <div class="char-count" id="char-count">0/250</div>
+        </div>
+        <button type="submit" class="form-submit-btn">Send Message</button>
+        <div class="thank-you-message" id="thank-you-message" role="status" aria-live="polite" style="display:none;"></div>
+      </form>
+      <div class="live-preview" id="live-preview" aria-live="polite">
+        <strong>Live Preview:</strong>
+        <div id="preview-text">Hello! Your message is:</div>
+      </div>
+    </section>
+  <!-- Dynamic Contact Form Styles -->
+  <style>
+    .form-group {
+      margin-bottom: 1.2em;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label {
+      font-weight: 500;
+      margin-bottom: 0.3em;
+    }
+    .form-group input,
+    .form-group textarea {
+      padding: 0.6em 0.8em;
+      border: 1px solid #bfcfff;
+      border-radius: 6px;
+      font-size: 1em;
+      font-family: inherit;
+      margin-bottom: 0.2em;
+      transition: border 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border: 1.5px solid #3555ff;
+      outline: none;
+    }
+    .input-error {
+      color: #d32f2f;
+      font-size: 0.95em;
+      min-height: 1.2em;
+    }
+    .char-count {
+      font-size: 0.95em;
+      color: #3555ff;
+      text-align: right;
+    }
+    .form-submit-btn {
+      background: #3555ff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.7em 1.5em;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.5em;
+      transition: background 0.2s;
+    }
+    .form-submit-btn:hover,
+    .form-submit-btn:focus {
+      background: #1d3eff;
+    }
+    .thank-you-message {
+      margin-top: 1em;
+      color: #2e7d32;
+      font-weight: 600;
+      font-size: 1.1em;
+      display: block;
+    }
+    .live-preview {
+      margin-top: 2em;
+      background: #f6f9ff;
+      border: 1px solid #ccd9ff;
+      border-radius: 8px;
+      padding: 1em 1.2em;
+      font-size: 1.05em;
+      color: #1a1a1a;
+    }
+    @media (max-width: 600px) {
+      .live-preview {
+        font-size: 1em;
+        padding: 0.8em 0.5em;
+      }
+    }
+  </style>
+  <!-- Dynamic Contact Form Script -->
+  <script>
+    // Elements
+    const form = document.getElementById('dynamic-contact-form');
+    const nameInput = document.getElementById('contact-name');
+    const emailInput = document.getElementById('contact-email');
+    const messageInput = document.getElementById('contact-message');
+    const charCount = document.getElementById('char-count');
+    const emailError = document.getElementById('email-error');
+    const thankYouMsg = document.getElementById('thank-you-message');
+    const livePreview = document.getElementById('preview-text');
+
+    // Live character count
+    messageInput.addEventListener('input', function() {
+      charCount.textContent = `${messageInput.value.length}/250`;
+      updatePreview();
+    });
+
+    // Live preview
+    function updatePreview() {
+      const name = nameInput.value.trim() || 'there';
+      const msg = messageInput.value.trim();
+      livePreview.textContent = `Hello, ${name}! Your message is: ${msg}`;
+    }
+    nameInput.addEventListener('input', updatePreview);
+
+    // Email validation
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+    emailInput.addEventListener('input', function() {
+      if (!validateEmail(emailInput.value)) {
+        emailError.textContent = 'Please enter a valid email address.';
+      } else {
+        emailError.textContent = '';
+      }
+    });
+
+    // Form submit
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Validate email
+      if (!validateEmail(emailInput.value)) {
+        emailError.textContent = 'Please enter a valid email address.';
+        emailInput.focus();
+        return;
+      }
+      // Show thank you message
+      thankYouMsg.textContent = 'Thank you for contacting us! We have received your message.';
+      thankYouMsg.style.display = 'block';
+      // Reset form after short delay
+      setTimeout(() => {
+        form.reset();
+        charCount.textContent = '0/250';
+        updatePreview();
+        thankYouMsg.style.display = 'none';
+      }, 3000);
+    });
+
+    // Initial preview
+    updatePreview();
+  </script>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2025 NS ENTERPRISES. All rights reserved.</p>
+    <p>Last updated: <span id="last-updated"></span></p>
+    <nav aria-label="Footer links">
+      <a href="#" style="margin-right:10px;">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+    </nav>
+  </footer>
+
+  <!-- Dedicated About Us JS -->
+  <script src="scripts/about.js"></script>
+<!-- Chat Button & Popup (unchanged, but improved accessibility) -->
+<div id="chat-button"
+     onclick="toggleChatPopup()"
+     aria-label="Open chat assistant"
+     role="button"
+     tabindex="0"
+     style="position: fixed; bottom: 25px; right: 25px; background: #6a5acd; color: #fff; width: 60px; height: 60px; border-radius: 50%; font-size: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); z-index: 1000;">
+  🤖
+</div>
+<div id="chat-popup" style="position: fixed; bottom: 100px; right: 25px; width: 360px; height: 500px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); overflow: hidden; display: none; z-index: 1000; flex-direction: column; animation: fadeIn 0.3s ease-in-out;">
+  <div style="background:#6a5acd; color:white; padding:10px 15px; font-weight:bold; font-size:0.95rem; display:flex; justify-content:space-between; align-items:center;">
+    NS Chat Assistant
+    <span onclick="toggleChatPopup()" style="cursor:pointer;">✖️</span>
+  </div>
+  <iframe src="chatbot.html" title="Chat Assistant" style="border:none; width:100%; height:100%;"></iframe>
+</div>
+<script>
+  function toggleChatPopup() {
+    const popup = document.getElementById("chat-popup");
+    popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+    if (popup.style.display === "flex") {
+      popup.setAttribute('aria-modal', 'true');
+      popup.setAttribute('role', 'dialog');
+    } else {
+      popup.removeAttribute('aria-modal');
+      popup.removeAttribute('role');
+    }
+  }
+  // Keyboard accessibility for chat button
+  document.getElementById('chat-button').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      toggleChatPopup();
+    }
+  });
+</script>
+<!-- Keyframes moved to styles/about.css -->
+<!--
+  File: about.html
+  Purpose: About Us page for NS Enterprises - Career Compass
+  Author: NS Enterprises Web Team
+  Last updated: 2025-09-19
+  Description: Classic, professional, accessible, and responsive About Us page. Uses external CSS and JS for maintainability.
+-->
+</body>
+</html>

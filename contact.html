@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | NS ENTERPRISES</title>
+  <meta name="description" content="Contact NS Enterprises for Thermal Paper Solutions." />
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef5ff;
+      color: #1a1a1a;
+      padding-top: 80px;
+    }
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.05); /* lighter transparency */
+  backdrop-filter: blur(12px);           /* stronger blur effect */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-shadow: 0 2px 8px rgba(53, 85, 255, 0.1);
+  z-index: 1000;
+}
+
+
+    header h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: #3555ff;
+    }
+
+    nav a {
+      margin-left: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #3555ff;
+    }
+
+    nav a:hover {
+      color: #1d3eff;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #3555ff;
+      margin-bottom: 30px;
+    }
+
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    form {
+      flex: 1 1 500px;
+      background: white;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(53, 85, 255, 0.1);
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1.8px solid #3555ff;
+      border-radius: 6px;
+      font-size: 1rem;
+      background: #f8fbff;
+      transition: border 0.3s;
+    }
+
+    form input:focus, form textarea:focus {
+      border-color: #1d3eff;
+      outline: none;
+    }
+
+    button {
+      margin-top: 25px;
+      background: #3555ff;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #1d3eff;
+    }
+
+    #status {
+      text-align: center;
+      font-weight: 600;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 5px;
+      display: none;
+    }
+
+    .map-container {
+      flex: 1 1 500px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(53, 85, 255, 0.1);
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 460px;
+      border: none;
+    }
+
+    .social-links {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 1.6rem;
+    }
+
+    .social-links a {
+      margin: 0 12px;
+      color: #3555ff;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      color: #1d3eff;
+    }
+
+    @media (max-width: 768px) {
+      .contact-wrapper {
+        flex-direction: column;
+      }
+
+      iframe {
+        min-height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header id="header" style="position:fixed; top:0; width:100%; background:rgba(106,90,205,0.1); backdrop-filter:blur(10px); padding:15px 0; z-index:1000;">
+  <style>
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-title img {
+      height: 40px;
+    }
+
+    .logo-title h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: #6a5acd;
+      transition: all 0.8s ease;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: slideInFade 0.8s ease forwards;
+    }
+
+    @keyframes slideInFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: #6a5acd;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #6a5acd;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(106, 90, 205, 0.1);
+    }
+
+    /* Mobile styles */
+    @media (max-width: 600px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        padding: 10px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+    }
+  </style>
+
+  <div class="header-container">
+    <!-- ✅ Logo + Name -->
+    <div class="logo-title">
+      <img src="images/logo.png" alt="Logo">
+      <h1>NS ENTERPRISES</h1>
+    </div>
+
+    <!-- ✅ Menu Icon (☰) -->
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">☰</button>
+  </div>
+
+  <!-- ✅ Navigation Links -->
+  <div class="nav-container" style="max-width:1200px; margin:auto; padding:0 20px;">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About Us</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+
+
+  <main>
+    <h2>Contact Us</h2>
+
+    <div class="contact-wrapper">
+      
+      <!-- Contact Form -->
+      <form id="contact-form" onsubmit="sendContactForm(event)">
+        <label for="name">Name*</label>
+        <input type="text" id="name" name="name" required placeholder="Your full name" />
+
+        <label for="email">Email*</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com" />
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" />
+
+        <label for="message">Message*</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
+
+        <button type="submit">Send Message</button>
+        <div id="status"></div>
+      </form>
+
+      <!-- Google Map -->
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31103.65820332815!2d77.52677577598802!3d12.9855098312845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15b3444fce6b%3A0x5696d7a0192f44a5!2sDasanapura%20Hobli%2C%20Bangalore!5e0!3m2!1sen!2sin!4v1687321234567"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
+    </div>
+
+    <!-- Social Links -->
+    <div class="social-links">
+      <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook">📘</a>
+      <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">📸</a>
+      <a href="https://wa.me/919880408606" target="_blank" aria-label="WhatsApp">💬</a>
+    </div>
+  </main>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init('YOUR_USER_ID'); // Replace with your EmailJS Public Key
+    })();
+
+    function sendContactForm(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const status = document.getElementById('status');
+
+      const params = {
+        from_name: form.name.value,
+        from_email: form.email.value,
+        phone: form.phone.value,
+        message: form.message.value
+      };
+
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
+        .then(() => {
+          status.style.display = 'block';
+          status.style.backgroundColor = '#3555ff';
+          status.style.color = '#fff';
+          status.textContent = "✅ Thank you! Your message has been sent.";
+          form.reset();
+        }, (err) => {
+          status.style.display = 'block';
+          status.style.backgroundColor = '#e63946';
+          status.style.color = '#fff';
+          status.textContent = "❌ Something went wrong. Please try again.";
+        });
+    }
+  </script>
+<footer style="background:#2e3a59; color:#ccc; text-align:center; padding:25px 15px; font-size:0.9rem;">
+    <p>&copy; 2025 NS ENTERPRISES. All rights reserved.</p>
+    <p>📞 +91 98804 08606 | ✉️ nsenterprisesnagavenihh@gmail.com</p>
+  </footer>
+</body>
+</html>

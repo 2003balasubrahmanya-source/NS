@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NS Chatbot</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8f0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background: linear-gradient(to right, #FFD700, #FF4500);
+      color: white;
+      padding: 16px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-align: center;
+    }
+    .chat-container {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      background: #fdfdfd;
+    }
+    .message {
+      margin: 10px 0;
+      padding: 12px 16px;
+      border-radius: 20px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+    .user { background-color: #ffe4b3; align-self: flex-end; text-align: right; }
+    .bot { background-color: #f0f0f0; align-self: flex-start; text-align: left; }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+      padding: 0 10px;
+    }
+    .options button {
+      padding: 10px 14px;
+      background: #ff8c00;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .options button:hover { background: #e65100; }
+
+    .input-area {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+      background: #fff;
+    }
+    .input-area input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    .input-area button {
+      margin-left: 10px;
+      padding: 10px 16px;
+      background-color: #ff8c00;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+    .input-area button:hover { background-color: #e65100; }
+
+    .return-home-section {
+      width: 100%;
+      background: #fff2e6;
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid #ffd6cc;
+    }
+
+    .return-home-container {
+      text-align: center;
+    }
+
+    .return-home-button {
+      padding: 12px 24px;
+      background: linear-gradient(to right, #ffb347, #ff7043);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .return-home-button:hover {
+      background: linear-gradient(to right, #ff8a65, #ff5722);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .message { max-width: 90%; font-size: 0.95rem; }
+      .input-area input, .input-area button { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>🤖 NS Chatbot</header>
+  <div class="chat-container" id="chatbox">
+    <div class="message bot">👋 Hello! How can I help you?</div>
+  </div>
+  <div class="options" id="options"></div>
+  <div class="input-area">
+    <input type="text" id="userInput" placeholder="Type a custom question..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    const chatbox = document.getElementById("chatbox");
+    const optionsDiv = document.getElementById("options");
+
+    const subQuestions = {
+      1: {
+        title: "📍 Location – Choose a question:",
+        list: {
+          a: "Where is your factory located?",
+          b: "How do I reach your office from Majestic?",
+          c: "Can you share the Google Maps link?",
+          d: "Do you have branches in other cities?",
+          e: "Is there parking space available?"
+        },
+        answers: {
+          a: "📍 Our factory is at Kachohalli Village, Dasanapura Hobli, Bangalore – 560091.",
+          b: "🧭 You can reach us via Tumkur Road, 30 mins by cab or BMTC bus.",
+          c: "🗺️ https://maps.app.goo.gl/xyz123",
+          d: "🏢 We currently operate only in Bangalore.",
+          e: "🚗 Yes, we have ample parking space."
+        }
+      },
+      2: {
+        title: "🧾 Products – Choose a question:",
+        list: {
+          a: "What types of rolls do you sell?",
+          b: "Do you offer custom printed bills?",
+          c: "Can I buy in bulk?",
+          d: "Do you sell thermal paper?",
+          e: "Are barcode ribbons available?"
+        },
+        answers: {
+          a: "🧻 We sell POS, ATM, billing, jumbo, carbonless & bus ticket rolls.",
+          b: "🖨️ Yes – we provide custom printed bills & receipts.",
+          c: "📦 Yes, bulk orders available with discounts.",
+          d: "✅ Thermal paper available in multiple sizes.",
+          e: "🎯 Yes – barcode ribbons for all major printers."
+        }
+      },
+      3: {
+        title: "📞 Contact – Choose a question:",
+        list: {
+          a: "What is your phone number?",
+          b: "Do you respond on WhatsApp?",
+          c: "What is your email address?",
+          d: "Can I visit your office without appointment?",
+          e: "Who to contact for business inquiries?"
+        },
+        answers: {
+          a: "📱 Call us at +91 98804 08606.",
+          b: "💬 Yes – we respond on WhatsApp too!",
+          c: "📧 Email: nsenterprisesnagavenihh@gmail.com.",
+          d: "🚪 Yes, but prior call is preferred.",
+          e: "👤 Please ask for Mr. Prashanth."
+        }
+      },
+      4: {
+        title: "💸 Pricing – Choose a question:",
+        list: {
+          a: "How do you price your products?",
+          b: "Are there bulk order discounts?",
+          c: "Do prices include GST?",
+          d: "Is delivery fee included?",
+          e: "Can I get a quotation?"
+        },
+        answers: {
+          a: "💰 Pricing depends on type, quantity & size.",
+          b: "📉 Yes – bulk order discounts available.",
+          c: "🧾 All prices are GST inclusive.",
+          d: "🚚 Free delivery within Bangalore city.",
+          e: "📄 Sure – contact us for a formal quote."
+        }
+      },
+      5: {
+        title: "🕒 Working Hours – Choose a question:",
+        list: {
+          a: "What are your working hours?",
+          b: "Are you open on weekends?",
+          c: "Can I visit after 7 PM?",
+          d: "Are you open during holidays?",
+          e: "Do you have lunch breaks?"
+        },
+        answers: {
+          a: "🕘 Mon–Sat, 9 AM – 7 PM.",
+          b: "📅 Open on Saturdays, closed Sundays.",
+          c: "🌙 Sorry – visits after 7 PM not allowed.",
+          d: "🚫 Closed on major public holidays.",
+          e: "🍽️ Lunch break is 1 PM – 2 PM."
+        }
+      }
+    };
+
+    let currentMain = null;
+
+    function showMainMenu() {
+      currentMain = null;
+      optionsDiv.innerHTML = `
+        <button onclick="handleMain(1)">1️⃣ Location</button>
+        <button onclick="handleMain(2)">2️⃣ Products</button>
+        <button onclick="handleMain(3)">3️⃣ Contact</button>
+        <button onclick="handleMain(4)">4️⃣ Pricing</button>
+        <button onclick="handleMain(5)">5️⃣ Working Hours</button>
+      `;
+    }
+
+    function handleMain(option) {
+      currentMain = option;
+      const group = subQuestions[option];
+      addBotMessage(group.title);
+      optionsDiv.innerHTML = "";
+      for (let key in group.list) {
+        const btn = document.createElement("button");
+        btn.textContent = `${key.toUpperCase()}) ${group.list[key]}`;
+        btn.onclick = () => handleSub(key);
+        optionsDiv.appendChild(btn);
+      }
+      const back = document.createElement("button");
+      back.textContent = "🔙 Back to Main Menu";
+      back.onclick = showMainMenu;
+      optionsDiv.appendChild(back);
+    }
+
+    function handleSub(letter) {
+      const answer = subQuestions[currentMain]?.answers[letter];
+      if (answer) {
+        addBotMessage(answer);
+      } else {
+        addBotMessage("❓ I didn't understand that.");
+      }
+      setTimeout(showMainMenu, 1000);
+    }
+
+    function addBotMessage(text) {
+      const msg = document.createElement("div");
+      msg.className = "message bot";
+      msg.textContent = text;
+      chatbox.appendChild(msg);
+      scroll();
+    }
+
+    function addUserMessage(text) {
+      const msg = document.createElement("div");
+      msg.className = "message user";
+      msg.textContent = text;
+      chatbox.appendChild(msg);
+      scroll();
+    }
+
+    function scroll() {
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const msg = input.value.trim();
+      if (!msg) return;
+      addUserMessage(msg);
+      if (/hi|hello|hey/i.test(msg)) {
+        addBotMessage("👋 Hello again! Choose an option below.");
+        showMainMenu();
+      } else if (currentMain && /^[A-Ea-e]$/.test(msg)) {
+        handleSub(msg.toLowerCase());
+      } else {
+        addBotMessage("🤖 I didn’t get that. Please say 'Hi' or use the buttons.");
+      }
+      input.value = "";
+    }
+
+    // Initialize
+    showMainMenu();
+  </script>
+  <!-- 🔙 Close Chatbot & Return Home -->
+<section class="return-home-section">
+  <div class="return-home-container">
+    <button onclick="window.close()" class="return-home-button">❌ Close & Return to Home</button>
+  </div>
+</section>
+
+<style>
+  .return-home-section {
+    width: 100%;
+    background: #ffeef2;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #f5c2cb;
+  }
+
+  .return-home-container {
+    text-align: center;
+  }
+
+  .return-home-button {
+    padding: 12px 24px;
+    background: linear-gradient(to right, #ffb6c1, #ff7043);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .return-home-button:hover {
+    background: linear-gradient(to right, #ff8a80, #ff5722);
+    transform: scale(1.05);
+  }
+</style>
+
+</body>
+</html>
